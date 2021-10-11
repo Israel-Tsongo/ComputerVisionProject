@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ComputerVision</title>
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css')}}">    
+    <link rel="stylesheet" href="{{url_for('static', filename='fonts/font-awesome.min.css')}}">    
+    <link rel="stylesheet" href="{{url_for('static', filename='css/best-carousel-slide.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/Footer-with-social-media-icons.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/Footer-with-social-media-icons.css')}}">    
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    
+    
+</head>
+
+<body class="align-content-center" style="background-color:#dddddd;">
+    <section class="d-flex justify-content-center" id="sec" style="height: 700px;margin-top: 5px;">
+        <div id="platform" style="width: 600px;margin-right: 0;margin-left: 0;height: 700px;">
+            <div class="d-flex justify-content-center" style="width: 100%;">
+                <h1 class="text-center" id="head" >Image Classifier</h1>
+            </div>
+            <div class="text-center d-flex justify-content-center" id="cls1" >
+                <div style="width: 530px;height: 37px">
+                
+                   <form method="POST" action="/" enctype="multipart/form-data"> 
+                   
+		        <input type="file" name="image" data-toggle="tooltip"  data-bs-tooltip="" data-placement="bottom" id="file-button" title="Choisir le fichier">
+		        <button class="btn btn-primary" data-toggle="tooltip" data-bs-tooltip="" id="valid-button" type="submit" 
+		                title="validate button">Valider</button>
+		                
+                  </form> 
+                       
+                        
+                </div>
+                
+            </div>
+            <div class="d-flex justify-content-center" style=" height: 300px;margin-top: 40px;margin-bottom: 23px;">
+            
+            
+                        {% if result%}                        
+                         
+                <div class="hight" style="width: 595px;height:320px; margin-bottom: 20px;">
+                          
+                       <img class="img-fluid img-to-display" src="data:image/jpeg;base64,{{result}}" style="width: 595px;height: 320px;background-size: cover;position: relative;z-index: 5;">                     
+               
+                </div>                
+                      {% endif %}
+                      
+                      {% if not result%} 
+                         <div  style="margin-top: 70px" ><h3> choose an image </h3></div>
+                      
+                      {% endif %}
+                      
+                
+                
+                
+            </div>
+            <div  class="text-center" style="height: 40px;margin-top: 0;width: 100%;">
+            
+            
+                  <a href= {{url_for("classifierImg")}} > <button id="classifier" class="btn btn-primary" data-toggle="tooltip" data-bs-tooltip="" data-placement="right" type="button" 
+                    title="Classify button">Classify</button> </a>
+                    
+                    
+                    </div>
+            <div class="text-center d-flex justify-content-center" style="height: 70px;margin-top: 40px;position: absolute;width: 100%;">
+                <div class="d-flex justify-content-center"  id="up-div" >
+                
+                    {% if pred%}
+                    
+                        <h1  id="prediction" >{{pred}}</h1>
+                    
+                    {% endif %}
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section><footer id="footerpad">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-8 mx-auto">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item"><a href="#"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="#"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="#"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-instagram fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="#"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pinterest fa-stack-1x fa-inverse"></i></span></a></li>
+                </ul>
+                <p class="copyright text-muted text-center">Copyright © All Right Reseved by Israel's Group</p>
+            </div>
+        </div>
+    </div>
+</footer>
+    
+    <script src="assets/js/jquery.min.js"></script>
+	
+	
+	<script>
+	
+	
+	
+	
+	
+	</script>
+</body>
+
+</html>
